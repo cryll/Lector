@@ -12,11 +12,9 @@ import modelo.acceso.Gestor;
 import vista.LectorUIEjemplo;
 
 public class ParaUI extends LectorUIEjemplo {
-	private Libro libro;
 
-	public ParaUI(Libro libro) {
+	public ParaUI() {
 		super();
-		this.libro = libro;
 		this.gestor = new Gestor(this.libro.getLectura());
 		this.btnAlante.addActionListener((ActionListener) this.avanzarPagina);
 		this.btnMarcar.addActionListener(marcarPagina);
@@ -41,6 +39,7 @@ public class ParaUI extends LectorUIEjemplo {
 	private ListenerMarcarPagina marcarPagina = new ListenerMarcarPagina(this);
 	private ListenerRetrocedePagina retrocederPagina = new ListenerRetrocedePagina(this);
 	private ListenerVolverAMarca volverAMarca = new ListenerVolverAMarca(this);
+	private Libro libro;
 
 	public int getCaracteres() {
 		caracteres = this.filas * this.columnas;

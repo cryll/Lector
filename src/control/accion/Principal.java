@@ -9,7 +9,7 @@ public class Principal {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					ParaUI frame = new ParaUI(null);
+					ParaUI frame = new ParaUI();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();

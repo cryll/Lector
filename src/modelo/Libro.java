@@ -13,23 +13,21 @@ import java.util.ArrayList;
 import control.logica.ParaUI;
 import modelo.acceso.Gestor;
 
-
 public class Libro implements Legible {
 
 	private String lectura;
 	private int actual = 0;
 	private int marca = 0;
 	private ArrayList<Pagina> paginas;
-	private int incremento;
+
 	private ParaUI paraUi;
 	private Gestor gestor;
 
 	public Libro() {
 		super();
-		lectura = "src/JuegoTronos.txt";
+		lectura = "Datos/JuegoTronos.txt";
 		paginas = new ArrayList<>();
-		this.paraUi = paraUi;
-		
+
 	}
 
 	@Override
@@ -83,7 +81,7 @@ public class Libro implements Legible {
 	@Override
 	public void irAPagina() {
 		this.actual = this.marca;
-		 this.paginas.add(new Pagina(marca, actual));
+		this.paginas.add(new Pagina(marca, actual));
 		generarPagina(this.actual);
 	}
 
@@ -102,39 +100,40 @@ public class Libro implements Legible {
 	public ArrayList<Pagina> getPaginas() {
 		return paginas;
 	}
-public static void main(String[] args) {
-	File file = new File("src/JuegoTronos.txt");
-	FileReader flujoR = null;
-	try {
-		 flujoR = new FileReader(file);
-	} catch (FileNotFoundException e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
-	}
-	int contador =0;
-	int letraActual =0;
-	int i=0;
-	int paginaActual = 15;
-	try {
-		letraActual = flujoR.read();
-	} catch (IOException e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
-	}
-	while(letraActual!=-1) {
-		contador++;
-		try {
-			letraActual = flujoR.read();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		i++;
-		if(contador>letraActual*500&&contador<letraActual*501)
-			System.out.print(Character.valueOf((char) letraActual));
-		
-	}
-	System.out.println(contador);
-}
+
+//	public static void main(String[] args) {
+//		File file = new File("src/JuegoTronos.txt");
+//		FileReader flujoR = null;
+//		try {
+//			flujoR = new FileReader(file);
+//		} catch (FileNotFoundException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//		int contador = 0;
+//		int letraActual = 0;
+//		int i = 0;
+//		int paginaActual = 15;
+//		try {
+//			letraActual = flujoR.read();
+//		} catch (IOException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//		while (letraActual != -1) {
+//			contador++;
+//			try {
+//				letraActual = flujoR.read();
+//			} catch (IOException e) {
+//				// TODO Auto-generated catch block
+//				e.printStackTrace();
+//			}
+//			i++;
+//			if (contador > letraActual * 500 && contador < letraActual * 501)
+//				System.out.print(Character.valueOf((char) letraActual));
+//
+//		}
+//		System.out.println(contador);
+//	}
 
 }
