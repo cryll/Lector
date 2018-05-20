@@ -30,17 +30,17 @@ public class ParaUI extends LectorUIEjemplo {
 		System.out.println(pagina.getPrimer() + " " + pagina.getUltimo());
 		this.textArea.setText(new Gestor(this.libro.getLectura()).sacaTexto().substring((int) pagina.getPrimer(),
 				(int) pagina.getUltimo()));
-		
+
 	}
 
 	private final int filas = 30;
 	private final int columnas = 40;
 	private int caracteres;
 	private Gestor gestor;
-	private ListenerAvanzaPagina avanzarPagina;
-	private ListenerMarcarPagina marcarPagina;
-	private ListenerRetrocedePagina retrocederPagina;
-	private ListenerVolverAMarca volverAMarca;
+	private ListenerAvanzaPagina avanzarPagina = new ListenerAvanzaPagina(this);
+	private ListenerMarcarPagina marcarPagina = new ListenerMarcarPagina(this);
+	private ListenerRetrocedePagina retrocederPagina = new ListenerRetrocedePagina(this);
+	private ListenerVolverAMarca volverAMarca = new ListenerVolverAMarca(this);
 
 	public int getCaracteres() {
 		caracteres = this.filas * this.columnas;
